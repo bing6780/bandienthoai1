@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách điện thoại</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>SHOPPHONE</h1>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="baitap01.html">Sản phẩm</a>
+        <a href="baitap02.html">Đăng ký</a>
+        <a href="baitap03.html">Đếm ngược</a>
+        <a href="baitap18.html">Bài tập 18</a>
+        <a href="baitap19.html">Bài tập 19</a>
+        <a href="theory.html">Lý thuyết</a>
+        <a href="attendance.html">Điểm danh</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
+</header>
+
+<section class="product-section">
+
+    <h2>Danh sách điện thoại</h2>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Nhập tên điện thoại..."
+    >
+
+    <button onclick="searchProduct()">
+        Tìm kiếm
+    </button>
+
+    <p id="message"></p>
+
+    <div id="productList" class="products"></div>
+
+</section>
+
+<script>
+
+const products=[
+
+{
+name:"iPhone 16 Pro",
+price:"29.990.000 VNĐ",
+image:"https://via.placeholder.com/250x180?text=iPhone+16+Pro"
+},
+
+{
+name:"Samsung S25 Ultra",
+price:"31.990.000 VNĐ",
+image:"https://via.placeholder.com/250x180?text=Samsung+S25"
+},
+
+{
+name:"Xiaomi 15 Pro",
+price:"22.990.000 VNĐ",
+image:"https://via.placeholder.com/250x180?text=Xiaomi+15"
+},
+
+{
+name:"OPPO Find X8",
+price:"20.990.000 VNĐ",
+image:"https://via.placeholder.com/250x180?text=OPPO+Find+X8"
+},
+
+{
+name:"Vivo X200 Pro",
+price:"24.990.000 VNĐ",
+image:"https://via.placeholder.com/250x180?text=Vivo+X200"
+}
+
+];
+
+function displayProducts(list){
+
+const container=document.getElementById("productList");
+
+container.innerHTML="";
+
+list.forEach(product=>{
+
+container.innerHTML+=`
+
+<div class="card">
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+<p>${product.price}</p>
+
+<button>Mua ngay</button>
+
+</div>
+
+`;
+
+});
+
+}
+
+displayProducts(products);
+
+function searchProduct(){
+
+let keyword=document.getElementById("search").value.trim().toLowerCase();
+
+let result=products.filter(product=>
+
+product.name.toLowerCase().includes(keyword)
+
+);
+
+if(result.length==0){
+
+document.getElementById("message").innerHTML="Không tìm thấy sản phẩm.";
+
+document.getElementById("productList").innerHTML="";
+
+}
+else{
+
+document.getElementById("message").innerHTML="";
+
+displayProducts(result);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

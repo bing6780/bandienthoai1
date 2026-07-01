@@ -357,3 +357,52 @@ width:90%;
 }
 
 }
+.timer-box{
+
+text-align:center;
+
+margin:60px auto;
+
+}
+
+#timer{
+
+font-size:70px;
+
+font-weight:bold;
+
+color:#0066cc;
+
+margin:30px;
+
+}
+
+.warning{
+
+color:red;
+
+animation:blink 1s infinite;
+
+}
+
+@keyframes blink{
+
+0%{
+
+opacity:1;
+
+}
+
+50%{
+
+opacity:0.2;
+
+}
+
+100%{
+
+opacity:1;
+
+}
+
+}

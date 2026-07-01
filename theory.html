@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trả lời lý thuyết</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>SHOPPHONE</h1>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="baitap01.html">Sản phẩm</a>
+        <a href="baitap02.html">Đăng ký</a>
+        <a href="baitap03.html">Đếm ngược</a>
+        <a href="baitap18.html">Bài tập 18</a>
+        <a href="baitap19.html">Bài tập 19</a>
+        <a href="theory.html">Lý thuyết</a>
+        <a href="attendance.html">Điểm danh</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
+</header>
+
+<section class="theory">
+
+<h2>TRẢ LỜI PHẦN LÝ THUYẾT</h2>
+
+<hr>
+
+<h3>Câu 1. Hiển thị danh sách sản phẩm và tìm kiếm</h3>
+
+<p>
+Danh sách sản phẩm được lưu trong một mảng JavaScript gồm tên, giá và hình ảnh.
+Khi người dùng nhập từ khóa tìm kiếm, chương trình sử dụng hàm
+<b>toLowerCase()</b> để chuyển cả từ khóa và tên sản phẩm về chữ thường,
+giúp tìm kiếm không phân biệt chữ hoa hay chữ thường.
+</p>
+
+<p>
+Sau đó sử dụng phương thức <b>filter()</b> kết hợp với
+<b>includes()</b> để lọc các sản phẩm phù hợp.
+Nếu mảng kết quả rỗng thì hiển thị thông báo
+<b>"Không tìm thấy sản phẩm."</b>.
+</p>
+
+<p>
+Để hạn chế lỗi Injection (XSS), dữ liệu nhập vào được xử lý bằng
+<b>trim()</b> để loại bỏ khoảng trắng dư thừa và chỉ dùng để so sánh,
+không chèn trực tiếp vào HTML.
+</p>
+
+<hr>
+
+<h3>Câu 2. Form đăng ký</h3>
+
+<p>
+Khi người dùng nhấn nút Đăng ký, sự kiện submit của form được bắt bằng
+<b>addEventListener()</b>.
+</p>
+
+<p>
+Sử dụng
+<b>event.preventDefault()</b>
+để ngăn trình duyệt tải lại trang, sau đó kiểm tra dữ liệu nhập vào.
+</p>
+
+<p>
+Email được kiểm tra bằng biểu thức chính quy (Regex).
+Mật khẩu phải có ít nhất 8 ký tự,
+bao gồm chữ hoa, chữ thường và chữ số.
+</p>
+
+<p>
+Nếu dữ liệu hợp lệ thì lưu thông tin vào
+<b>LocalStorage</b>
+bằng
+<b>localStorage.setItem()</b>.
+</p>
+
+<p>
+Trong ứng dụng thực tế không nên lưu mật khẩu dạng văn bản vào LocalStorage.
+Mật khẩu cần được mã hóa (hash) và lưu trên máy chủ để đảm bảo an toàn.
+</p>
+
+<hr>
+
+<h3>Câu 3. Đồng hồ đếm ngược</h3>
+
+<p>
+Đồng hồ được xây dựng bằng
+<b>setInterval()</b>,
+mỗi giây giảm một đơn vị thời gian.
+</p>
+
+<p>
+Khi thời gian còn dưới 1 phút,
+CSS Animation được sử dụng để tạo hiệu ứng nhấp nháy và đổi sang màu đỏ.
+</p>
+
+<p>
+Khi thời gian bằng 0,
+hàm
+<b>clearInterval()</b>
+được gọi để dừng bộ đếm,
+tránh tạo nhiều Interval gây Memory Leak.
+</p>
+
+<p>
+Nếu triển khai trên Domain hoặc Hosting,
+có thể lấy thời gian từ máy chủ (Server Time hoặc API)
+để tránh việc người dùng chỉnh giờ trên máy tính làm sai kết quả đếm ngược.
+</p>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đồng hồ đếm ngược</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <h1>SHOPPHONE</h1>
+
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="baitap01.html">Sản phẩm</a>
+        <a href="baitap02.html">Đăng ký</a>
+        <a href="baitap03.html">Đếm ngược</a>
+        <a href="baitap18.html">Bài tập 18</a>
+        <a href="baitap19.html">Bài tập 19</a>
+        <a href="theory.html">Lý thuyết</a>
+        <a href="attendance.html">Điểm danh</a>
+        <a href="about.html">Giới thiệu</a>
+        <a href="contact.html">Liên hệ</a>
+    </nav>
+
+</header>
+
+<section class="timer-box">
+
+    <h2>Đồng hồ đếm ngược</h2>
+
+    <div id="timer">
+        10:00
+    </div>
+
+    <button onclick="startTimer()">
+        Bắt đầu
+    </button>
+
+    <button onclick="resetTimer()">
+        Làm lại
+    </button>
+
+</section>
+
+<script>
+
+let time = 600;
+
+let interval;
+
+function updateTimer(){
+
+let minutes=Math.floor(time/60);
+
+let seconds=time%60;
+
+minutes=minutes<10?"0"+minutes:minutes;
+
+seconds=seconds<10?"0"+seconds:seconds;
+
+document.getElementById("timer").innerHTML=minutes+":"+seconds;
+
+if(time<=60){
+
+document.getElementById("timer").classList.add("warning");
+
+}
+
+if(time==0){
+
+clearInterval(interval);
+
+alert("Đã hết thời gian!");
+
+return;
+
+}
+
+time--;
+
+}
+
+function startTimer(){
+
+clearInterval(interval);
+
+interval=setInterval(updateTimer,1000);
+
+}
+
+function resetTimer(){
+
+clearInterval(interval);
+
+time=600;
+
+document.getElementById("timer").classList.remove("warning");
+
+document.getElementById("timer").innerHTML="10:00";
+
+}
+
+</script>
+
+</body>
+
+</html>
